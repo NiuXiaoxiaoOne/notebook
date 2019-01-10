@@ -555,6 +555,112 @@ join file1 file2 # 输出file1 file2默认字段相同的行
 join -a1 -a2 file1 file2 # 输出所有行
 join -v1 -v2 file1 file2 # 只输出不匹配的行
 
+36.转换字符 -- (translate)tr p433
+
+tr功能：转换字符；替代字符，如将多个字符转化为几个；删除指定的字符
+注意：tr不能直接使用，需要重定向输入；tr只能一个一个替换，不像set可以连续替换字符
+
+tr [-cds] [set1 [set2]]
+
+-c: 将所有非set1中的字符，这里的set1类似于一个集合，将该集合的补集全部替换成set2中的
+-d: 删除set1中的字符
+-s: set1中有多个元素，而set2中只有一个，那么任意set1中的一个元素都会转化成set2中唯一的那个
+
+tr a A < file1 > file2 # 将file1中的元素a转化为A，将结果输出到file2
+
+tr ':?' \. < file1 > file2 # 若出现多个特殊字符，则用单引号引用。单个字符用反斜线；将:或?转化为.
+
+tr abcde ab < file1 > file2 # 若数量不对称，则不对应的重复转化为set2的末尾元素
+
+扩展：使用部分正则表达式
+
+tr A-Z a-z < file1 > file2 # 将大写字母转化为小写
+
+tr 0-9 A-I < file1 > file2
+
+[:lower:] 可替换 a-z
+[:upper:] A-Z
+[:digit:] 0-9
+[:alpha:] a-zA-Z
+
+扩展2：转化不可显示字符
+
+010：退格 011：制表符 012：新行 015：回车
+
+tr '\012' '\011' < file1 > file2
+
+# -s示意
+
+tr 0-9 x < file1 > file2
+相当于：
+tr -s 0-9 A-I < file1 > file2
+
+# -c示意
+
+tr -c '\n2018a' 'xa' < file1 > file2
+
+## -d示意
+tr -d [:digit:] < file1 > file2
+
+eg: cat file1 file2 | tr -cs [:alpha:]\' '\n' | sort -fn | wc -l
+
+37.非交互式编辑器 (stream editor) --sed
+
+sed [-i(直接覆盖原文件)] command | -e command... [fiel...]
+
+详解：set [-i] [/address|pattern/]s/search/replacement/[g]
+
+address: 用来选择某行的地址
+pattern: 字符串
+search: 正则表达式
+replacement： 将search替换成replacement
+g: sed默认只替换每行匹配到的第一个，g可以替换所有
+
+eg:
+
+sed 's/harly/Harly/g' file1 将file1中所有的harly替换成Harly
+sed 's/[mM]on/kon/g' file1 # 将mon或Mon替换成kon
+sed 's/.$//' file1 # .指任意匹配，.$任意匹配每行最后一个字符，换成一个空串
+sed '5s/har/Har/g' file1 # 将第5行的har转化为Har
+set '5,10s...'
+set '5,$s...'
+set '/OK/s/Ok/11/g' # 将包含OK的行中的OK转化为11
+set '/[0-9]/...' # 任意0-9
+
+扩展2：-e 同时执行多个命令
+set \
+-e 's/mon/Mond/g' \
+-e 's/sun/Sund/g' 
+
+38.正则表达式 p488
+
+grep Harley file1 # 匹配包含Harley的行
+... '^Harley' ... # 匹配以Harley开头的行
+... 'Harley$' ... # 匹配以Harley结尾的行
+... '^Harley$' ... # 匹配整行中只有一个Harley的行
+... '^$' ... # 匹配空行
+... '\<kn' ... # 以kn开头的行
+... 'ow\>' ... # 以ow结尾的
+... '\<know\>' ... #  只包含know做整行的行
+
+注意：
+\< 和 \> 可以用\b表示和代替
+任意字符包括字母 数字 下划线等
+
+... 'c.t' ... # c.(.任意字符)t的行
+... 'li[csz]e' ... # 包含lice/lise/lize的
+... '21[[:alpha:]]' ... # 21任意字母
+... '[[:upper:]][[:upper:]][[:digit:]]' ... 
+... '[3-7]' ... # 包含3-7任意一个数字的
+... 'x[0-9][0-9]' ... #
+
+# 接下来是重复运算符
+ 
+... 'H[[:lower:]]*' ... # H-小写字符-0个或多个任意字符
+... 'error.*code' ... # error-任意字符-任意0个或多个字符-code
+... ':.*:' ... # :-任意字符-任意0个或多个字符-:
+... '(xyz){5}' ... # 将能匹配5次的组xyz的行找出
+... 'cat|dog|bird' ... # 符合任意条件即可
 
 n.一些技巧 ——————————————————————
 
@@ -610,4 +716,6 @@ C区域与en_US区域排序比较 p420 改变区域设置 422
 注意：Ubuntu默认en_us格式，登陆文件、环境变量的改变都要重启后才能显示效果。
 
 偏序创建全序 tsort p433
+
+一般使用的是扩展正则，原先的是基本正则，基本正则的限制 p451
 
