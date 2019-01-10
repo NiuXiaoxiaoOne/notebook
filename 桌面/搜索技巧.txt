@@ -1,0 +1,29 @@
+“大学生” 精准匹配
+
+简历 +大学生 -小学生 # 搜索结果必须包含某物，必须不包含某物
+
+~大学生 或者 大学生~ # 找出包含与‘大学生’相关
+
+国家* 匹夫*  # 自动查找
+
+黑 OR 白 # 找出包含黑或白的链接
+
+电脑(关键词) 2000 … 5000 # 搜索价格
+
+学生 site:zhihu.com # 在某网站搜索某内容，不能以http://开头
+
+inurl:zhihu  # 搜索网站网址中含有’zhihu’关键词的
+
+allinurl:zhi hu # 相当于inurl:zhi inurl:hu
+
+title:zhihu # 搜索网页标题中含有’zhihu’的
+
+allintitle:zhi hu 
+
+related:zhihu.com # 搜索与’zhihu.com’类似与相关的网站
+
+vim手册(某书) filetype:pdf # 搜索某书的某格式
+
+google | bing # 搜‘google’或’bing’
+
+cache:python.us # 可查看某网站关闭或被封后的历史快照
