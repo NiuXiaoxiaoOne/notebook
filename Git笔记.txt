@@ -1,0 +1,22 @@
+判断Git是否安装成功：git --version / which git
+
+登陆：
+git config --global user.name "(在此输出用户名)"
+git config --global user.email "(在此输入邮箱)"
+
+git init # 初始化一个空仓库
+git add file1 # 将file1添加到暂存区
+
+当将file1.txt文件提交到暂存区后，再对file1进行修改。此时有两种选择:
+git add file1 # 将修改后的文件覆盖掉旧文件
+git checkout -- file1 # 去掉新修改的内容
+
+git commit -m "(本次更新的内容)" # 将文件从暂存区提交到仓库 
+git reset HEAD~ # 将上一次提交到仓库的文件放回到工作去
+git log # 查看提交记录
+
+git status # 查看当前仓库状态
+
+
+
+
