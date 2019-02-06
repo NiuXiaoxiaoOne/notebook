@@ -38,4 +38,5 @@
 35.magnet：分屏
 36.1password：密码管理
 37.mindnode：思维导图
+38.rar解压利器
 
