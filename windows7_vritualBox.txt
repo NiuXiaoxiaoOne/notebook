@@ -1,0 +1,24 @@
+1.下载windows7镜像
+Windows 7 Ultimate (x64) - DVD (Chinese-Simplified)
+地址: msdn
+
+2.virtualBox安装镜像: https://jingyan.baidu.com/article/656db918c55836e381249cbe.html
+
+3.安装虚拟增强工具,先退出虚拟硬盘: https://jingyan.baidu.com/article/e75057f21684daebc91a891b.html
+
+4.分盘
+https://jingyan.baidu.com/article/fd8044fae86fb55031137ae5.html
+
+5.下载mingW-W64--gcc工具
+http://mingw-w64.org/doku.php/download/mingw-builds
+
+6.下载vscode
+
+7.配置mingW-W64
+https://www.jianshu.com/p/febbf1e975b6
+
+8.在vscode添加c/c++插件
+
+- 添加.c文件
+- 保存后，用gcc random_file.c -o random_file 编译
+- 双击执行文件

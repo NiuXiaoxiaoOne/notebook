@@ -8,7 +8,7 @@ passwd 修改密码
 
 last + 用户名 ： 查看该用户的所有登录记录
 last: 查看所有的登录记录
-在火狐浏览器中，a’ + f 打开文件， a’ + q 退出软件
+在火狐浏览器中，a’ + f 打开文件， c’ + q 退出软件
 
 在GUI界面中，任何地方，点击a’ 开启、关闭搜索
 a’ + tab: 在一个桌面中，多任务切换
@@ -33,7 +33,7 @@ id:  显示当前用户id
 
 less 文件.后缀：查看该文件的内容的快捷键：
 
-1.b 2.空格 3.h 4.q 5./^name
+1.b 2.空格 3.h 4.q 5./^name: n/N :下一个，上一个
 
 功能：1.向后移动 2.向前移动 3.查看帮助 4.退出 5.搜索以name开头的某行。
 
@@ -148,7 +148,7 @@ l 退回到上一个链接界面
 
 7.显示shell选项 ——————————————————————
 
-set -o 查看所有的shell选项，on打开 off关闭
+set -o 查看所有的shell选项，on关闭 off打开
 
 set -o 某shell : 打开
 
@@ -270,7 +270,7 @@ wc -l < file3
 -a: 追加，默认直接覆盖
 file…: 可多个文件
 
-cat file1 | tree file2 file3 | grep ls
+cat file1 | tee file2 file3 | grep ls
 
 # 将cat file1结果输出到file2 file3中，在屏幕中显示grep ls的结果
 
@@ -496,6 +496,7 @@ grep [-cilLnrsvwx] pattern [file…]
 -v: 显示非特定模式的行
 -w: 只显示完整的特定模式的行
 -x: 只显示整行中只有一个特定模式的行
+-pattern 代表指定模式，也可以用正则
 
 eg: ls -F /etc | grep -c ‘/’ # 查看当前目录中有多少子目录
 
@@ -534,7 +535,7 @@ uniq [-cdu] [infile] [outfile]]
 -d: 只输出重复行
 -u: 只输出非重复行
 
-infile:输如文件 outfile: 输出文件
+infile:输入文件 outfile: 输出文件
 
 uniq file1: 输出文件的所有行，若有重复的，只保留一个
 
@@ -854,7 +855,7 @@ whereis [command] # 查看某命令的文件路径；第一个目录是程序地
 
 ls /bin/passwd # /在开头表示根目录，在中间则代表分界符
 
-/(root目录)~(用户目录)/..(父目录)/.(子目录)
+/(root目录)~(用户目录)/..(父目录)/.(当前目录)
 ~Jake 指定前往Jake用户标识所在的目录，默认是当前用户
 
 ls -Fla : 带颜色，详细显示，隐藏文件
