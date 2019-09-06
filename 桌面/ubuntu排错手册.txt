@@ -1,7 +1,0 @@
-安装软件： https://blog.csdn.net/wh8_2011/article/details/69950427
-
-vim保存命令：https://www.cnblogs.com/freyr/p/3648749.html
-
-vim中 E212：无法打开并写入文件：https://blog.csdn.net/jilitojeek/article/details/17169007
-
-root密码: https://www.cnblogs.com/mmdln/p/9071525.html

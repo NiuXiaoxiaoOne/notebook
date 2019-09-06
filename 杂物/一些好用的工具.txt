@@ -1,5 +1,0 @@
-brew install fzf # 命令行搜索工具
-
-pip3 install tldr # linux命令简易显示
-	
-	tldr ls

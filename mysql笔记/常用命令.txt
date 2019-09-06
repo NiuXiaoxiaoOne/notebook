@@ -1,0 +1,9 @@
+mysql -u 用户 -p 登陆账户
+show databases; 显示所有的数据库
+use 数据库名; 进入指定数据库
+show tables; 显示当前数据库中的所有table
+use 表名; 进入指定表
+SHOW COLUMNS FROM 表名; 显示指定表内的全部信息
+	DESCRIBE 表名; 显示指定表内的全部信息
+SHOW CREATE DATA 数据库名/表名; 创建数据库和表
+SHOW HELP;  显示所有的show的命令

@@ -1,7 +1,0 @@
-
-
-.gitconfig
-[alias]
-        ci = commit
-        st = status
-        lp = log --pretty=format:'%h %ad | %s%d' --graph --date=short

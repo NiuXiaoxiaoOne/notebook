@@ -206,7 +206,7 @@ alias 某别名=‘某命令’ # 用强引用
 alias 某别名 # 查看别名原始命令
 
 alias 查看所有别名
-naries 某别名 # 删除某别名
+unaries 某别名 # 删除某别名
 
 13.修改一个文件的内容 ——————————————————————
 
@@ -498,7 +498,11 @@ grep [-cilLnrsvwx] pattern [file…]
 -x: 只显示整行中只有一个特定模式的行
 -pattern 代表指定模式，也可以用正则
 
-eg: ls -F /etc | grep -c ‘/’ # 查看当前目录中有多少子目录
+eg: 
+
+ls -F /etc | grep -c ‘/’ # 查看当前目录中有多少子目录
+
+grep “moo” target* 匹配到target*为名的多个文件，并查找包含有moo的行
 
 33.选取以特定模式开头的行 — look p408 ——————————————————————
 
@@ -609,24 +613,27 @@ eg: cat file1 file2 | tr -cs [:alpha:]\' '\n' | sort -fn | wc -l
 
 sed [-i(直接覆盖原文件)] command | -e command... [fiel...]
 
-详解：set [-i] [/address|pattern/]s/search/replacement/[g]
+详解：set [-i] [/address|pattern/]s/search/replacement/[g/d]
 
 address: 用来选择某行的地址
 pattern: 字符串
 search: 正则表达式
 replacement： 将search替换成replacement
+s：代表替换的是字符串的内容
 g: sed默认只替换每行匹配到的第一个，g可以替换所有
+d: 删除符合条件的行
 
 eg:
-
+替换特殊字符需要转义如"\,"
 sed 's/harly/Harly/g' file1 将file1中所有的harly替换成Harly
 sed 's/[mM]on/kon/g' file1 # 将mon或Mon替换成kon
 sed 's/.$//' file1 # .指任意匹配，.$任意匹配每行最后一个字符，换成一个空串
 sed '5s/har/Har/g' file1 # 将第5行的har转化为Har
-set '5,10s...'
-set '5,$s...'
-set '/OK/s/Ok/11/g' # 将包含OK的行中的OK转化为11
-set '/[0-9]/...' # 任意0-9
+sed '5,10s...'
+sed '5,$s...'
+sed '/OK/s/Ok/11/g' # 将包含OK的行中的OK转化为11
+sed '/[0-9]/...' # 任意0-9
+sed '/^ *$/d' 删除空行
 
 扩展2：-e 同时执行多个命令
 set \
@@ -821,7 +828,22 @@ fuser p729
 链接的概念 p670
 初始化文件、环境文件名称 p292
 
+46.awk ——————————————————————
 
+涉及操作的要用{}包起来
+
+awk ‘{print $1,$4}’ radome.txt 将radome.txt中的第1列和第4列中的内容提取出来
+
+awk ‘$1==“tcp” && $2==“ttp” {print $0}’ radome.txt 将第1列为tcp并且第2列为ttp的整行显示
+
+awk ‘($1==“tcp” && $2==“ttp”) || NR==1 {print $0}’ radome.txt 将上行的条件或是第一行的显示
+
+awk -F "," '{print $2}' readom.txt 以','作分隔符，分割每行，只显示分割后的第2列
+
+awk '{ArrayList[$1]++}END{for(i in ArrayList) print i "\t" ArrayList[i]}'
+
+// 创建一个名为ArrayList的数组，统计第1列中有重复的行，并自动累加；END代表统计结束后执行后面的操作;
+	用for循环将第1列打印出来，并接一个Tab格，再接重复的次数
 n.一些技巧 ——————————————————————
 
 1.cp d1 d2; cp d1 d3; rm d1; ls
@@ -879,6 +901,26 @@ unset HERRL # 删除变量
 
 HERRL=“/usr/bin:” # 长字符需要双引号
 
+mkdir dir1/dir2 -p 创建多级目录
+
+find . -name ‘111’ 查看名字为111的文件
+
+[查看shell]
+
+echo $SHELL 查看当前运行的shell
+
+cat /etc/shells 查看本机都有那些shell，并显示路径
+
+cash -s 某shell路径 改变当前的shell
+
+[根据名字查找文件]
+
+find -name “xiaole” 在当前目录下递归查找名字中含有xiaolei的文件
+find ~/old_file -name “xiaole” 在指定目录~/old_file下递归查找
+find支持正则表达式
+find -i 忽略大小写
+
+
 ——————————————————————
 
 标准I/O重定向目录 p323
@@ -908,3 +950,5 @@ more基本命令 p486
 特殊的文件内容：任何输入都会被抛弃。 /dev/null /dev/zero
 存放程序文件的目录 p590
 /usr目录的内容 p587
+
+
