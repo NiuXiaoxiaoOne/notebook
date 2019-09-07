@@ -1,0 +1,42 @@
+1.pythonIDLE
+2.iwork
+3.IINA：视频播放器
+4.Dr.Unarchiver：解压缩
+5.chrome浏览器
+6.Lantern：梯子
+7.网易云音乐
+8.Parallels Desktop：虚拟机
+9.downloader：度盘下载器
+10.CleanMyMac X
+11.CheatSheet：快捷键显示器
+12.Foxit Reader：pdf播放器
+13.PyCharm
+14.XMind：思维导图
+15.Mou：markDown编辑器
+16.Flux：保护视力
+17.ShadowsocksX：梯子
+18.Cmd markDown：markDown编辑器
+19.contexts：Dock显示器
+20.雨滴APP客户端
+21.Zapya：快牙
+22.Artpaper：壁纸
+23.MacBooster7：杀毒软件
+24.Time Sink：监控软件使用时间
+25.Alfred3：另类搜索
+26.OmniFocus：时间管理
+27.迅雷
+28.iterm2：另类终端
+    git
+    macvim
+    tmux
+29.KeyCastr
+30.Anki：卡片记忆软件
+31.MWeb：markdown编辑器
+32.Flowstate：专心写作
+33.欧陆词典
+34.AV Recorder：录屏
+35.magnet：分屏
+36.1password：密码管理
+37.mindnode：思维导图
+38.rar解压利器
+

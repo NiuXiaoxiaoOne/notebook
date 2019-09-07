@@ -1,0 +1,18 @@
+0.创建软链接
+
+1.启动mvim
+https://blog.csdn.net/weixin_40539892/article/details/79252927
+
+
+vimdc所在地址：/usr/local/Cellar/macvim/8.1-151/MacVim.app/Contents/Resources/vim/doc
+
+/usr/local/Cellar/macvim/8.1-151/MacVim.app/Contents/Resources/vim/vimrc.bundles
+
+/usr/local/Cellar/macvim/8.1-151/MacVim.app/Contents/Resources/vim/vimrc
+
+
+vim:/usr/share/vim
+
+
+python模块位置: /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6
+

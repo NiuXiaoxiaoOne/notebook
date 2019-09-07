@@ -1,0 +1,23 @@
+软件：ag
+安装：brew install the_silver_searcher 
+网站：https://github.com/ggreer/the_silver_searcher/wiki
+Usage: ag [FILE-TYPE] [OPTIONS] PATTERN [PATH]
+
+  Recursively search for PATTERN in PATH.
+  Like grep or ack, but faster.
+
+Example:
+  ag -i foo /bar/
+
+Options:
+-A --after [LINES] 打印包含指定模式后的接下来几行，默认2行，可用lines参数指定
+-B --before [LINES] 打印包含指定模式后的前面几行，与-A相反
+--noheading 每行前都打印行所在文件的位置
+-C [LINES] 打印包含指定模式行以及前后两行，是-A -B集合
+-c 打印包含指定模式的文件名地址，以及包含的行数
+-l 只打印包含指定模式的文件名地址
+--stats 打印统计数据，同时打印指定模式的内容
+--stats-only 只打印统计数据
+
+
+

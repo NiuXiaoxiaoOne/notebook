@@ -1,0 +1,45 @@
+前缀键：ctrl + b (以下简称cb)
+
+tmux new -s <name>             创建一个新的session,同时创建默认的window
+tmux new -s <name> -n <name1>  同时创建名称为name1的window
+tmux ls                        查看有多少会话
+
+cb + d                         暂时离开session，但并不会删除会话
+tmux attach(-a) -t <name>  返回对应的session
+tmux a                         快速连接第一个回话
+
+tmux kill-session -t <name>    彻底删除对应的session
+
+按住option不放，用鼠标画区域，放开option，com + c,复制完成
+
+window(窗口)操作
+
+cb + c                         当处于一个window下时，可以创建一个新的窗口
+cb + p                         自动切换到上一个窗口
+cb + n                         切换到下一个
+cb + ,                         重命名当前窗口，重命名的方式在窗口下面
+cb + w                         列出所有的窗口
+
+pane(分屏)操作
+cb + （shift(以下称sh) + 5 )/[即％]        创建竖分屏
+cb + “                                  创建横分屏
+cb + 方向键                              切换各分屏
+cb + 1                                  显示分屏编号
+exit                                    退出本分屏／退出最后一个分屏后，同时永久删除本会话
+cb + x                                  关闭当前分屏，下面的提示界面要求要输入y,进行确认
+cb + q                                  显示分屏编号
+cb + d                                  暂时退出会话
+cb + (sh + 7 即&)                        退出当前所有分屏，并关闭该会话
+cb + 空格                                对当前所有pane进行重新布局
+cb + z                                  最大化当前所在的pane,再按一次后恢复
+
+cb + s              列出当前所有会话
+
+[一行代码]
+opt + 方向键左右键    单词间的跳转
+ct + a/e           行头/行尾
+ctrl + u           清除当前行
+ct + d             删除光标所在位置的单词字母
+ct + h             删除光标前一个字母
+ct + w             删除光标前的单词
+ct + k             删除光标至行末
